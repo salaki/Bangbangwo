@@ -1,0 +1,15 @@
+[23-Jan-2015 11:41:23 America/Denver] PHP Fatal error:  Class 'Balanced\Bootstrap' not found in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 5
+[23-Jan-2015 11:42:33 America/Denver] PHP Fatal error:  Class 'Balanced\Bootstrap' not found in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 5
+[23-Jan-2015 11:49:54 America/Denver] PHP Fatal error:  Class 'Balanced\Bootstrap' not found in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 5
+[23-Jan-2015 11:51:09 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[23-Jan-2015 11:51:11 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[23-Jan-2015 11:53:11 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[08-Feb-2015 11:17:38 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[08-Feb-2015 11:17:49 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[08-Feb-2015 11:17:52 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[08-Feb-2015 11:20:38 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[18-Mar-2015 10:51:55 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[18-Mar-2015 10:52:06 America/Denver] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 4
+[18-Mar-2015 10:52:50 America/Denver] PHP Fatal error:  Class 'Balanced\Bootstrap' not found in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 5
+[18-Mar-2015 10:52:57 America/Denver] PHP Fatal error:  Class 'Balanced\Bootstrap' not found in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 5
+[18-Mar-2015 11:18:16 America/Denver] PHP Fatal error:  Class 'Balanced\Bootstrap' not found in /home1/ubangban/public_html/balanced-php-master/tests/Balanced/SuiteTest.php on line 5
