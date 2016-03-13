@@ -43,7 +43,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 $_SESSION['confirm'] = 'A Confirmation E-Mail has been sent to your E-Mail Account';
                 $to = $email;
                 $from = 'info@bangbangwo.com';
-                $body = "<table width='60%' style='border:1px solid #00aeec' align='center'><tr><td height='30px;' bgcolor='#fff' style='border-bottom:1px solid #00aeec'> &nbsp; <img src='http://ubangbangwo.com/images/logo.png' height='50'></td></tr><tr><td><h2>Hi ".$fname." ".$lname."</h2><td></tr><tr><td></td></tr><tr><td>  Thanks for creating an account with Bangbangwo. Click below to confirm your email address:</td></tr><tr><td></td></tr><tr><td>http://".$_SERVER['SERVER_NAME']."/verify.php?uid=".base64_encode($id)."&verify=".base64_encode($verifyCode)."</td></tr><tr><td></td></tr><tr><td>If you have problems, please paste the above URL into your web browser.</td></tr></table>";
+
+			
+
+                $body = "<h2>Hi ".$fname." ".$lname."</h2><div><p>Thanks for creating an account with Bangbangwo. Click below to confirm your email address:</p><p>http://".$_SERVER['SERVER_NAME']."/verify.php?uid=".base64_encode($id)."&verify=".base64_encode($verifyCode)."</p><p>If it does not work, please paste the above URL into your web browser.</p><p>Tips for the requestor:<ul><li>Post task you want it completed within two weeks.</li><li>Your payment is safe with us and only will be released to the tasker after you give the rating (satisfied or dissatisfied).	</li><li>Your payment will be refunded if you cancel the task or no rating more than two weeks after hiring.</li></ul></p><p>Tips for the tasker:<ul><li>Good self-intro will increase your hire rate.</li><li>Good hello message with bid will increase your hire rate.</li><li>Maintain good ratings will increase your hire rate.</li><li>Ask for rating as soon as you complete the task to get your payment. </li></ul></p></div>";
+
+		$subject='Signup Confirmation';	
+
+				
                 $headers = "From: info@ubangbangwo.com\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";

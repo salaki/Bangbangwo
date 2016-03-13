@@ -6,7 +6,7 @@
 	<div style="clear:both;"></div>
 	<form id="" class="loginfrm" method="POST" action="" onsubmit="if($('#pass').val() =='' || $('#pass').val().length < 6){ $('#pass').css('border','1px solid red');$('#email-msg').show(); return false;}">
 		 <label class="lbl" style="float:left;">New Password</label><div style="32px 10px 0px" id="email-msg" class="err-msg err-msg-new">Password must be 6 charcters</div>
-		 <input type="password" style="&lt;?=$style?&gt;" class="female" id="pass" name="passchange">
+		 <input type="password" style="" class="female" id="pass" name="passchange">
              
 		 <input type="submit" class="btn1" value="Update" name="submit">
 	 </form>
@@ -58,9 +58,9 @@
         }
     });
 }</script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
- <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
   <script type="text/javascript" src="js/jquery.timepicker.js"></script>
    <script type="text/javascript" src="js/jquery.mask.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
@@ -112,8 +112,8 @@ if(strstr($_SERVER['REQUEST_URI'],'dashboard_tasker') && $checkSts_tasker['conta
         
 }
 if(isset($date))
-{
-	echo '<script>
+{ ?>
+	<script>
 	$(document).ready(function(){
 	var dt = "'.$date.'";
 	$(function(){
@@ -125,19 +125,23 @@ if(isset($date))
   });
   
 	});
-	</script>';
-}
+	</script>
+<?php }
 else
-{
-	echo '<script>
+{ ?>
+	<script>
 	$(document).ready(function(){
-	$(function(){
-	$( "#datepicker, #datepicker1, #datepicker2, #datepicker3, #datepicker4" ).datepicker();
-	$( "#datepicker, #datepicker1, #datepicker2, #datepicker3, #datepicker4" ).datepicker("option", "dateFormat", "yy-mm-dd");
-	//Pass the user selected date format 
-  });
+            $(function(){
+
+            $( "#datepicker, #datepicker1, #datepicker2, #datepicker3, #datepicker4" ).datepicker();
+
+            $( "#datepicker, #datepicker1, #datepicker2, #datepicker3, #datepicker4" ).datepicker("option", "dateFormat", "yy-mm-dd");
+
+            //Pass the user selected date format 
+
+            });
 	});
-	</script>';
-}
+	</script>;
+<?php }
 
 ?>

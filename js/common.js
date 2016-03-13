@@ -157,11 +157,11 @@ function validation_new(type)
         $('#email-msg').html('Please Enter Valid E-Mail Address').show();
         t = false;
     }
-    /* else if(last_str!='edu'){
+    else if(last_str!='edu'){
      $('#email').css('border-color','red');
      $('#email-msg').html('Please Enter an University E-Mail Address').show();                
      t=false;
-     }*/
+     }
     /*else if(invitation == ''){
      $('#register').css('border-color','red');
      $('#register-msg').html('Please Enter Registration Code').show();                
