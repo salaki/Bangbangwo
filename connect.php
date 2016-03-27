@@ -1,4 +1,4 @@
-<?php
+z<?php
 include_once "config.php";
 include_once "include/header.php";
 
@@ -6,7 +6,7 @@ $secretkey = mysql_query("select * from stripecredentials where id ='1'");
 $sresult = mysql_fetch_array($secretkey);
 
 
-if (isset($_POST['Submit']) == 'Tokenize' && isset($_POST['name']) != '') {
+if (isset($_POST['Submit']) == 'Tokenize') {
     try {
     
         $stripeClassesDir = __DIR__ . '/Stripe/lib/';
@@ -32,14 +32,22 @@ if (isset($_POST['Submit']) == 'Tokenize' && isset($_POST['name']) != '') {
             $secretkey = mysql_query("select * from taskerdetails where userid ='" . $_SESSION['userid'] . "'");
             if (mysql_num_rows($secretkey) > 0) {
             	$details=mysql_fetch_array($secretkey);
-            	
-            	$rp = \Stripe\Customer::retrieve($details['customerid']);
-		$rp->source=$token->id;
-		$rp->save();
-                $insert = mysql_query("update taskerdetails set `cardid`='" .$rp->sources->data['0']->id . "' WHERE userid='" . $_SESSION['userid'] . "'");
+            	if(empty($details['customerid'])) {
+                	$customer = \Stripe\Customer::create(array(
+                     	"description" => $_POST["cc-name"],
+                     	"source" => $token->id // obtained with Stripe.js
+                   	));
+                	$insert = mysql_query("insert into taskerdetails(`userid`,`recipientid`,`cardid`,`secretkey`,`customerid`) values('" . $_SESSION['userid'] . "','','".$customer->sources->data['0']->id."','".$sresult['secretkey']."','".$customer->id."')");
+                }
+                else {
+            		$rp = \Stripe\Customer::retrieve($details['customerid']);
+			$rp->source=$token->id;
+			$rp->save();
+                	$insert = mysql_query("update taskerdetails set `cardid`='" .$rp->sources->data['0']->id . "' WHERE userid='" . $_SESSION['userid'] . "'");
+                }
             } else {
             	$customer = \Stripe\Customer::create(array(
-                     "description" => $_POST['email'],
+                     "description" => $_POST["cc-name"],
                      "source" => $token->id // obtained with Stripe.js
                    ));
                 $insert = mysql_query("insert into taskerdetails(`userid`,`recipientid`,`cardid`,`secretkey`,`customerid`) values('" . $_SESSION['userid'] . "','','".$customer->sources->data['0']->id."','".$sresult['secretkey']."','".$customer->id."')");
@@ -175,18 +183,18 @@ if (mysql_num_rows($secretkey) > 0) {
                     </div>
                     <div class="panel-body">
                         <form role="form" method="post"  action="" class="form-horizontal">
-
+			    <!--	
                             <div class="form-group">
                                 <label class="col-lg-5 control-label">Name</label>
                                 <div class="col-lg-5">
-                                    <input type="text" id="name" class="form-control" name="name" autocomplete="off" placeholder="John Doe" />
+                                    <input type="text" id="name" class="form-control" name="name" autocomplete="off" placeholder="optional" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-5 control-label">Email Id</label>
                                 <div class="col-lg-5">
-                                    <input type="text" id="email" class="form-control" name="email" autocomplete="off" placeholder="John @gmail.com" />
+                                    <input type="text" id="email" class="form-control" name="email" autocomplete="off" placeholder="optional" />
                                 </div>
                             </div>
 
@@ -196,14 +204,15 @@ if (mysql_num_rows($secretkey) > 0) {
                             <div class="form-group">
                                 <label class="col-lg-5 control-label">Mobile Number</label>
                                 <div class="col-lg-5">
-                                    <input type="text" id="mobile-id" class="form-control" name="mobile-id" autocomplete="off" placeholder="" />
+                                    <input type="text" id="mobile-id" class="form-control" name="mobile-id" autocomplete="off" placeholder="optional" />
                                 </div>
                             </div>
 
 
                             <hr>                        
                             <h4> Add Card Details </h4>   
-                            <hr>                                           
+                            <hr>
+                            -->                                           
                             <div class="form-group">
                                 <label class="col-lg-5 control-label">Name on Card</label>
                                 <div class="col-lg-5">

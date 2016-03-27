@@ -32,9 +32,13 @@ class common
 	function verifyEmail($uid,$verifyCode)
 	{
 		$code = rand(0,9999999999);
+                
+                $get_id=mysql_num_rows(mysql_query("SELECT * FROM members WHERE id='".$uid."' AND verify_code='".$verifyCode."'"));
+                if($get_id>0){
 		$query = mysql_query("UPDATE members SET verify_email='1',status='1',verify_code='".$code."' WHERE id='".$uid."' AND verify_code='".$verifyCode."'") or die(mysql_error());
-		if($query)
+		
 			return true;
+                }
 		else 
 			return false;
 	}

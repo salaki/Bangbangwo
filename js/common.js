@@ -118,9 +118,9 @@ function validation_new(type)
     var contact = $('#contact').val();
     var pass = $('#pass').val();
     var cpass = $('#cpass').val();
-    var splited_email = email.split(".");
-    var last_str = splited_email[splited_email.length - 1];
-
+    var splited_email = email.split("@");
+    var last_str = splited_email[1];
+   
 
     var t = true;
     if (fname == '')
@@ -151,16 +151,16 @@ function validation_new(type)
         $('#email-msg').html('Please Enter Your E-Mail Address').show();
         t = false;
     }
-    else if (!isEmailAddress($('#email').val()))
-    {
-        $('#email').css('border-color', 'red');
-        $('#email-msg').html('Please Enter Valid E-Mail Address').show();
-        t = false;
-    }
-    else if(last_str!='edu'){
-     $('#email').css('border-color','red');
-     $('#email-msg').html('Please Enter an University E-Mail Address').show();                
-     t=false;
+//    else if (!isEmailAddress($('#email').val()))
+//    {
+//        $('#email').css('border-color', 'red');
+//        $('#email-msg').html('Please Enter Valid E-Mail Address').show();
+//        t = false;
+//    }
+    else if(last_str.indexOf('edu') <= -1){
+        $('#email').css('border-color','red');
+        $('#email-msg').html('Please Enter an University E-Mail Address').show();                
+        t=false;
      }
     /*else if(invitation == ''){
      $('#register').css('border-color','red');

@@ -44,10 +44,7 @@ include_once "include/config.php";
 
 		        $recipient = \Stripe\Recipient::create(array(
 	                    "name" => $_POST['name'],
-	                    "email" => $getdata['email'],
-	                    "description" => $_POST['description'],
-	                    "type" => $_POST['type'],
-	                    "tax_id" => $_POST['tax-id'],
+	                    "type" => "individual",
 	                    "bank_account" => array('country' => 'US', 'routing_number' => $_POST["routing_number"], 'account_number' => $_POST["account_number"]),	                        
 	       		));
 	       		
@@ -61,10 +58,7 @@ include_once "include/config.php";
 		
 		 $recipient = \Stripe\Recipient::create(array(
 	                    "name" => $_POST['name'],
-	                    "email" => $getdata['email'],
-	                    "description" => $_POST['description'],
-	                    "type" => $_POST['type'],
-	                    "tax_id" => $_POST['tax-id'],
+	                    "type" => "individual",
 	                    "bank_account" => array('country' => 'US', 'routing_number' => $_POST["routing_number"], 'account_number' => $_POST["account_number"]),	                        
 	       		));
 		
