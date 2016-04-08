@@ -17,12 +17,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					move_uploaded_file($_FILES["image"]["tmp_name"],
 				  "upload/" . $_SESSION['userid'].'.'.$arr[1]);
 				  $image = $_SESSION['userid'].'.'.$arr[1];
-				  $array = array("email"=>$email,"otheremail"=>$oemail,"contact"=>$contact,"linkedin"=>$linkedin,'image'=>$image,'type'=>'1',"about_me"=>nl2br($about_me));
+				  $array = array("email"=>$email,"otheremail"=>$oemail,"contact"=>$contact,"linkedin"=>$linkedin,'image'=>$image,'type'=>'1',"about_me"=>nl2br($about_me),'major'=>$major,'matriculation'=>$Matriculation,'degree'=>$Degree,'gender'=>$gender);
 			}
 		}
 		else
 		{
-			$array = array("email"=>$email,"otheremail"=>$oemail,"contact"=>$contact,"linkedin"=>$linkedin,'type'=>'1',"about_me"=>nl2br($about_me));
+			$array = array("email"=>$email,"otheremail"=>$oemail,"contact"=>$contact,"linkedin"=>$linkedin,'type'=>'1',"about_me"=>nl2br($about_me),'major'=>$major,'matriculation'=>$Matriculation,'degree'=>$Degree,'gender'=>$gender);
 		}
                 
                 
@@ -41,6 +41,10 @@ $email = $userDetail['email'];
 $contact = $userDetail['contact'];
 $linkedin = $userDetail['linkedin'];
 $aboutme=$userDetail['about_me'];
+$major=$userDetail['major'];
+$matriculation=$userDetail['matriculation'];
+$degree=$userDetail['degree'];
+$gender=$userDetail['gender'];
 
 // End Updation here
 ?>
@@ -74,7 +78,42 @@ $aboutme=$userDetail['about_me'];
              <textarea style="height: 180px;" class="femalereg" id="about_me" name="about_me"><?=$aboutme;?></textarea>
              
              <label class="lbl23">Image</label><br/>
-             <input name="image" type="file"  id="image" class="femalereg">
+             <input name="image" type="file"  id="image" class="femalereg"><br/>
+             <label class="lbl23">Major</label><div class="err-msg" id="pmajor-msg">Please Enter Major</div><br/>
+
+				 <input name="major" type="text" value="<?php echo $major; ?>"  id="major" class="femalereg">
+                                 
+                                  <label class="lbl23">Matriculation Year</label><div class="err-msg" id="pass-msg">Please Enter Matriculation Year</div><br/>
+
+				 <select name="Matriculation"  id="Matriculation" class="femalereg">
+                                     <?php
+                                      $a=2010;
+                                     for($i=0;$i<7;$i++){
+                                         $selected='';
+                                         if($a==$matriculation){
+                                             $selected="selected='selected'";
+                                         }
+                                        echo '<option '.$selected.' value="'.$a.'">'.$a.'</option>';
+                                        $a++;
+                                     }
+                                     ?>
+                                     
+                                     
+                                 </select>
+                                  
+                                  
+                                  <label class="lbl23">Degree</label><div class="err-msg" id="Degree-msg">Please Enter Degree</div><br/>
+
+				 <select name="Degree"  id="Degree" class="femalereg">
+                                     <option <?php echo $degree=='Bachelor'?'selected':''; ?> value="Bachelor">Bachelor</option>
+                                     <option <?php echo $degree=='Master'?'selected':''; ?> value="Master">Master</option>
+                                     <option <?php echo $degree=='PhD'?'selected':''; ?> value="PhD">PhD</option>
+                                     
+                                 </select><br/>
+                                 <label class="lbl23">Male</label>
+
+                                   <input name="gender" type="radio" <?php echo $gender=='Male'?'checked="checked"':''; ?>  value="Male" > <label class="lbl23">Female</label><input name="gender" type="radio" <?php echo $gender=='Female'?'checked="checked"':''; ?> value="Female" >   <br/>
+             
              
              <input name="submit" type="submit" value="Update Account" class="btn1" >
              </form>

@@ -37,7 +37,6 @@
     </div>
   </footer>
 <!-- /.container --> 
-
 <!-- jQuery Version 1.11.0 --> 
 <script src="js/jquery-1.11.0.js"></script> 
 <script src="js/bootstrap.min.js"></script>
@@ -64,7 +63,6 @@
   <script type="text/javascript" src="js/jquery.timepicker.js"></script>
    <script type="text/javascript" src="js/jquery.mask.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
-
   <script>
  $(document).ready(function(){
 //Datepicker Popups calender to Choose date
@@ -74,7 +72,6 @@ $(function() {
                 });
  
 });
-
 $(document).ready(function () {
   //called when key is pressed in textbox
   
@@ -132,16 +129,11 @@ else
 	<script>
 	$(document).ready(function(){
             $(function(){
-
             $( "#datepicker, #datepicker1, #datepicker2, #datepicker3, #datepicker4" ).datepicker();
-
             $( "#datepicker, #datepicker1, #datepicker2, #datepicker3, #datepicker4" ).datepicker("option", "dateFormat", "yy-mm-dd");
-
             //Pass the user selected date format 
-
             });
 	});
 	</script>;
 <?php }
-
 ?>

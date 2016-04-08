@@ -73,11 +73,11 @@ class common
 		}
 		if(array_key_exists('image',$array))
 		{
-			mysql_query("UPDATE members SET otheremail='".$array['otheremail']."',contact='".$array['contact']."',linkedin='".$array['linkedin']."',qual='".$array['qual']."',type='".$type."',image='".$array['image']."',about_me='".$array['about_me']."' WHERE id='".$_SESSION['userid']."'") or die(mysql_error());
+			mysql_query("UPDATE members SET otheremail='".$array['otheremail']."',contact='".$array['contact']."',linkedin='".$array['linkedin']."',qual='".$array['qual']."',type='".$type."',image='".$array['image']."',about_me='".$array['about_me']."',gender='".$array['gender']."',major='".$array['major']."',degree='".$array['degree']."',matriculation='".$array['matriculation']."' WHERE id='".$_SESSION['userid']."'") or die(mysql_error());
 		}
 		else
 		{
-			mysql_query("UPDATE members SET otheremail='".$array['otheremail']."',contact='".$array['contact']."',linkedin='".$array['linkedin']."',qual='".$array['qual']."',type='".$type."',about_me='".$array['about_me']."' WHERE id='".$_SESSION['userid']."'") or die(mysql_error());
+			mysql_query("UPDATE members SET otheremail='".$array['otheremail']."',contact='".$array['contact']."',linkedin='".$array['linkedin']."',qual='".$array['qual']."',type='".$type."',about_me='".$array['about_me']."' ,gender='".$array['gender']."',major='".$array['major']."',degree='".$array['degree']."',matriculation='".$array['matriculation']."' WHERE id='".$_SESSION['userid']."'") or die(mysql_error());
 		}
 	}
         

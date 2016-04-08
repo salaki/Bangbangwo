@@ -257,9 +257,9 @@ if (mysql_num_rows($getRecentQry) > 0) {
             // echo "SELECT a.task_id,a.tasker_id,a.amount,a.message,a.status,b.fname,b.lname,b.image,b.likes,b.dislikes,b.linkedin,b.contact FROM bids as a LEFT JOIN members as b ON a.tasker_id=b.id WHERE task_id='".$row['id']."' and a.status='2'";
             $getRecord = mysql_num_rows(mysql_query("SELECT a.task_id,a.tasker_id,a.amount,a.message,a.status,b.fname,b.lname,b.image,b.likes,b.dislikes,b.linkedin,b.contact,b.about_me FROM bids as a LEFT JOIN members as b ON a.tasker_id=b.id WHERE task_id='" . $row['id'] . "' and a.status='1'"));
             if ($getRecord > 0) {
-                $bidQuery = "SELECT a.task_id,a.tasker_id,a.amount,a.message,a.status,b.fname,b.lname,b.image,b.likes,b.dislikes,b.linkedin,b.contact,b.email,b.about_me FROM bids as a LEFT JOIN members as b ON a.tasker_id=b.id WHERE task_id='" . $row['id'] . "' and a.status='1'";
+                $bidQuery = "SELECT a.task_id,a.tasker_id,a.amount,a.message,a.status,b.major,b.matriculation,b.degree,b.fname,b.lname,b.image,b.likes,b.dislikes,b.linkedin,b.contact,b.email,b.about_me FROM bids as a LEFT JOIN members as b ON a.tasker_id=b.id WHERE task_id='" . $row['id'] . "' and a.status='1'";
             } else {
-                $bidQuery = "SELECT a.task_id,a.tasker_id,a.amount,a.message,a.status,b.fname,b.lname,b.image,b.likes,b.dislikes,b.linkedin,b.contact,b.email,b.about_me FROM bids as a LEFT JOIN members as b ON a.tasker_id=b.id WHERE task_id='" . $row['id'] . "'";
+                $bidQuery = "SELECT a.task_id,a.tasker_id,a.amount,a.message,a.status,b.major,b.matriculation,b.degree,b.fname,b.lname,b.image,b.likes,b.dislikes,b.linkedin,b.contact,b.email,b.about_me FROM bids as a LEFT JOIN members as b ON a.tasker_id=b.id WHERE task_id='" . $row['id'] . "'";
             }
 
 
@@ -411,6 +411,7 @@ if (mysql_num_rows($getRecentQry) > 0) {
 			  <div class="col-xs-8" id="white1">
 				<div class="innp">
 				  <h4 class="hgr1">' . $name . '</h4>
+                                      <p style="font-weight:bold;font-size:16px;"><span>'.$bidResult['major'].'</span>,&nbsp;&nbsp;<span>'.$bidResult['matriculation'].'</span><span>-Present</span></p>
 				  <p style="word-wrap: break-word;"><a href="http://' . $bidResult['linkedin'] . '">' . $bidResult['linkedin'] . '</a></p>
 				  <p><font size="5">$' . $bidResult['amount'] . '</font> &nbsp; <span class="dll" id="likeheart' . $bidResult['tasker_id'] . '"> ' . $bidResult['likes'] . ' </span> &nbsp; <span class="dll_dark" id="dislikeheart' . $bidResult['tasker_id'] . '"> ' . $bidResult['dislikes'] . ' </span></p>
 				<p>Contact : ' . $bidResult['contact'] . '</p><p>Email : ' . $bidResult['email'] . '</p>';

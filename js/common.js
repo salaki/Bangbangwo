@@ -118,6 +118,7 @@ function validation_new(type)
     var contact = $('#contact').val();
     var pass = $('#pass').val();
     var cpass = $('#cpass').val();
+    var major = $('#major').val();
     var splited_email = email.split("@");
     var last_str = splited_email[1];
    
@@ -149,6 +150,11 @@ function validation_new(type)
     {
         $('#email').css('border-color', 'red');
         $('#email-msg').html('Please Enter Your E-Mail Address').show();
+        t = false;
+    }if (major == '')
+    {
+        $('#major').css('border-color', 'red');
+        $('#pmajor-msg').html('Please Enter Major').show();
         t = false;
     }
 //    else if (!isEmailAddress($('#email').val()))

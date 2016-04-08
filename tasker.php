@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$verifyCode = rand(0,999999999);
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$submit_dt = date('Y-m-d H:i:s');
-	$query = array('fname'=>$fname,'lname'=>$lname,'email'=>$email,'linkedin'=>$linkedin,'contact'=>$contact,'pwd'=>$password,'verify_code'=>$verifyCode,'submit_dt'=>$submit_dt,'ip_address'=>$ip,'type'=>'1','university_id'=>$getId);
+	$query = array('fname'=>$fname,'lname'=>$lname,'email'=>$email,'linkedin'=>$linkedin,'contact'=>$contact,'pwd'=>$password,'verify_code'=>$verifyCode,'submit_dt'=>$submit_dt,'ip_address'=>$ip,'type'=>'1','university_id'=>$getId,'major'=>$major,'matriculation'=>$Matriculation,'degree'=>$Degree,'gender'=>$gender);
 	$record = mysql_num_rows(mysql_query("SELECT id FROM members WHERE email='".$email."'"));
 	if($record == 0)
 		$id = $objCommon->createQuery($query,'members');
@@ -119,12 +119,40 @@ if(isset($_SESSION['confirm']))
                                         <!--<label class="lbl23">Your  Registration Code</label><div class="err-msg" id="register-msg">Please Enter Registration Code</div><br/>
                                          <input name="registrationcode" type="text"  id="register" class="femalereg"><br/>-->
                                          <span class="error" style="color:red;float:right;"><?php echo $regstErr;?></span><br />
+                                                   
+ <label class="lbl23">Major</label><div class="err-msg" id="pmajor-msg">Please Enter Major</div><br/>
 
+				 <input name="major" type="text"  id="major" class="femalereg">
+                                 
+                                  <label class="lbl23">Matriculation Year</label><div class="err-msg" id="pass-msg">Please Enter Matriculation Year</div><br/>
+
+				 <select name="Matriculation"  id="Matriculation" class="femalereg">
+                                     <option value="2010">2010</option>
+                                     <option value="2011">2011</option>
+                                     <option value="2012">2012</option>
+                                     <option value="2013">2013</option>
+                                     <option value="2014">2014</option>
+                                     <option value="2015">2015</option>
+                                     <option value="2016">2016</option>
+                                 </select>
+                                  
+                                  
+                                  <label class="lbl23">Degree</label><div class="err-msg" id="Degree-msg">Please Enter Degree</div><br/>
+
+				 <select name="Degree"  id="Degree" class="femalereg">
+                                     <option value="Bachelor">Bachelor</option>
+                                     <option value="Master">Master</option>
+                                     <option value="PhD">PhD</option>
+                                     
+                                 </select>
 
 					 <label class="lbl23">Password</label><div class="err-msg" id="pass-msg">Please Enter Password</div><br/>
 					 <input name="password" type="password"  id="pass" class="femalereg">
 					 <label class="lbl23">Confirm Password</label><div class="err-msg" id="cpass-msg">Please Re-Enter Password</div><br/>
 					 <input name="cpassword" type="password"  id="cpass" class="femalereg">
+                                         <label class="lbl23">Male</label>
+
+                                   <input name="gender" type="radio" checked="checked" value="Male" > <label class="lbl23">Female</label><input name="gender" type="radio" selected="selected" value="Female" > 
 					 <input name="submit" type="submit" value="Create An Account" class="btn1" >
 				 </form>	
 				<?php } ?>
